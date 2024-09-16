@@ -1,0 +1,62 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+#button_trash:hover {
+    background-color: red;
+}
+
+.tip {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+}
+
+
+.tip:hover .hover-box {
+    display: block;
+}
+
+
+.hover-box {
+    display: none;
+    position: absolute;
+    padding: .5em 5px;
+    left: -5px;
+    min-width: 150px;
+    text-align: center;
+    overflow: auto;
+    height: 50px;
+    white-space: nowrap;
+    top: -60px;
+    background: rgba(0,0,0,.8);
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: .86em;
+    z-index: 900;
+}
+
+#patients_list tfoot tr th input {
+    width: 100%;
+}

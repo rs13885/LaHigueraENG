@@ -1,0 +1,225 @@
+﻿@model Entidades.Models.Antecedente;
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div class="container text-center">
+    <h1 class="display-4">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
+    <h4>Antecedente (crear)</h4>
+    <br />
+    <form action="/Antecedente/CreateAntecedent" method="POST">
+        <div class="row">
+            <div class="col">
+                <label class="form-label" for="Sedentarismo">Sedentarismo: </label>
+                <select class="form-control" name="Sedentarismo">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="Alcohol">Alcohol: </label>
+                <select class="form-control" name="Alcohol">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="Drogas">Consumo Drogas: </label>
+                <select class="form-control" name="Drogas">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="Tabaco">Tabaco: </label>
+                <select class="form-control" name="Tabaco">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <label class="form-label" for="Alergias">Alergias: </label>
+                <select class="form-control" name="Alergias">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="Dbt">Dbt: </label>
+                <select class="form-control" name="Dbt">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="Hta">Hta: </label>
+                <select class="form-control" name="Hta">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="Dislipemia">Dislipemia: </label>
+                <select class="form-control" name="Dislipemia">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">            
+            <div class="col">
+                <label class="form-label" for="Obesidad">Obesidad: </label>
+                <select class="form-control" name="Obesidad">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="Chagas">Chagas: </label>
+                <select class="form-control" name="Chagas">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="Hidatidosis">Hidatidosis: </label>
+                <select class="form-control" name="Hidatidosis">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="Tbc">Tbc: </label>
+                <select class="form-control" name="Tbc">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+        </div>
+        <br />
+        <br />        
+        <div class="row">
+            
+            <div class="col">
+                <label class="form-label" for="Cancer">Cancer: </label>
+                <select class="form-control" name="Cancer">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="Quirurgicos">Quirúrgicos: </label>
+                <select class="form-control" name="Quirurgicos">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="Hospitalizaciones">Hospitalizaciones: </label>
+                <select class="form-control" name="Hospitalizaciones">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col">
+                <label class="form-label" for="RiesgoNut">Riesgo Nutricional: </label>
+                <select class="form-control" name="RiesgoNut">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="RiesgoSoc">Riesgo Social: </label>
+                <select class="form-control" name="RiesgoSoc">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="Personales">Personales: </label>
+                <select class="form-control" name="Personales">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="Familiares">Familiares: </label>
+                <select class="form-control" name="Familiares">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+        </div>
+        <br />
+        <br />        
+        <div class="row">
+            <div class="col">
+                <label class="form-label" for="AntPerinatales">Antecedentes Perinatales: </label>
+                <select class="form-control" name="AntPerinatales">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="Vacunacion">Vacunación: </label>
+                <select class="form-control" name="Vacunacion">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="Medicacion">Medicación: </label>
+                <select class="form-control" name="Medicacion">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col">
+                <label class="form-label" for="Notas">Notas: </label>
+                <textarea name="Notas" class="form-control" cols="120" rows="8"></textarea>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <input type="number" name="PacienteId" value=@ViewBag.Paciente.Id hidden />
+        <input class="btn btn-lg btn-success" type="submit" name="agregar" value="Agregar Antecedente" />
+        <a class="btn btn-lg btn-danger" href="/Paciente/viewDetails/@ViewBag.Paciente.Id">Cancelar</a>
+    </form>
+</div>

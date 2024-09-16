@@ -1,0 +1,6 @@
+.vs/
+.env
+.DS_Store
+**/bin
+**/obj
+*.db

@@ -1,0 +1,197 @@
+﻿@model Entidades.Models.Antecedente;
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@{
+    string justSayYesOrNo(int value) => value == 1 ? "SI" : "NO";
+}
+
+
+<div class="container text-center">
+    <h1>Antecedente creado el día: @ViewBag.Antecedente.FechaCreacion</h1>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Sedentarismo: @justSayYesOrNo(@ViewBag.Antecedente.Sedentarismo)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Alcohol: @justSayYesOrNo(@ViewBag.Antecedente.Alcohol)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Drogas: @justSayYesOrNo(@ViewBag.Antecedente.Drogas)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Tabaco: @justSayYesOrNo(@ViewBag.Antecedente.Tabaco)</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Alergias: @justSayYesOrNo(@ViewBag.Antecedente.Alergias)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Dbt: @justSayYesOrNo(@ViewBag.Antecedente.Dbt)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Hta: @justSayYesOrNo(@ViewBag.Antecedente.Hta)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Dislipemia: @justSayYesOrNo(@ViewBag.Antecedente.Dislipemia)</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Obesidad: @justSayYesOrNo(@ViewBag.Antecedente.Obesidad)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Chagas: @justSayYesOrNo(@ViewBag.Antecedente.Chagas)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Hidatidosis: @justSayYesOrNo(@ViewBag.Antecedente.Hidatidosis)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Tbc: @justSayYesOrNo(@ViewBag.Antecedente.Tbc)</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Cancer: @justSayYesOrNo(@ViewBag.Antecedente.Cancer)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Quirurgicos: @justSayYesOrNo(@ViewBag.Antecedente.Quirurgicos)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Hospitalizaciones: @justSayYesOrNo(@ViewBag.Antecedente.Hospitalizaciones)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">RiesgoNut: @justSayYesOrNo(@ViewBag.Antecedente.RiesgoNut)</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">RiesgoSoc: @justSayYesOrNo(@ViewBag.Antecedente.RiesgoSoc)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Personales: @justSayYesOrNo(@ViewBag.Antecedente.Personales)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Familiares: @justSayYesOrNo(@ViewBag.Antecedente.Familiares)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">AntPerinatales: @justSayYesOrNo(@ViewBag.Antecedente.AntPerinatales)</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Vacunacion: @justSayYesOrNo(@ViewBag.Antecedente.Vacunacion)</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Medicacion: @justSayYesOrNo(@ViewBag.Antecedente.Medicacion)</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Notas</h5>
+                    <p class="card-text">@ViewBag.Antecedente.Notas</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

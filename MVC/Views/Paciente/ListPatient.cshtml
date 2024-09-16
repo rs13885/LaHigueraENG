@@ -1,0 +1,69 @@
+﻿@model Entidades.Models.Paciente;
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div class="container text-center">
+    @if (Enumerable.Count(ViewBag.Pacientes) > 0)
+    {
+    <h1>Listado de Pacientes</h1>
+    <br/>
+    <div class="table-responsive">
+        <table class="table table-hover" id="patients_list">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Fecha de Nacimiento</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">Paraje de atención</th>
+                    <th scope="col">Fecha de alta</th>
+                    <th scope="col">Activo</th>
+                    <th scope="col">Ver</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (Entidades.Models.Paciente paciente in ViewBag.Pacientes)
+            {
+                    <tr>
+                        <td>@paciente.Nombre</td>
+                        <td>@paciente.Apellido</td>
+                        <td>@paciente.Dni</td>
+                        <td>@paciente.FechaNac</td>
+                        <td>@paciente.Sexo</td>
+                        <td>@paciente.ParajeAtencion</td>
+                        <td>@paciente.FechaAlta.ToString().Split(" ")[0]</td>
+                        @if (@paciente.FlgActivo == 1)
+                        {
+                            <td class="bg-success">SI</td>
+                        }else{
+                            <td class="bg-secondary">NO</td>
+                        }
+                            <td class="text-center"><a asp-action="viewDetails" asp-route-id="@paciente.Id"><img src="~/icons/eye.svg" /></a> <a data-bs-toggle="tooltip" data-bs-title="Exportar Historia Clínica" asp-action="ExportDataToPdf" asp-route-id="@paciente.Id"><img src="~/icons/pdf.svg" /></a></td>
+                    </tr>
+            }
+            <tfoot>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Fecha de Nacimiento</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">Paraje de atención</th>
+                    <th scope="col">Fecha de alta</th>
+                    <th scope="col">Activo</th>
+                    <th scope="col">Ver</th>
+                </tr>
+            </tfoot>
+
+            </tbody>
+        </table>
+    </div>
+
+    } else
+    {
+        <h4>No se registran pacientes activos en la base de datos</h4>
+    }
+</div>
