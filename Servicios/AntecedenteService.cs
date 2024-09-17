@@ -9,6 +9,7 @@ namespace Servicios
         
             _ctxt = ctx;
         }
+        
 
         public List<Antecedente> getAllAntecedentForAPatient(int id_patient) {
             // This Method returns all antecedent for a patient
@@ -18,7 +19,8 @@ namespace Servicios
         public void create(Antecedente antecedente)
         {
             //This method persists Antecedent objects in DDBB
-            antecedente.FechaCreacion = DateTime.Today.ToString("d");
+            antecedente.FechaCreacion = DateTime.Now;
+            antecedente.LastUpdated = antecedente.FechaCreacion;
             antecedente.Notas = antecedente.Notas?.ToUpper() ?? "";
             antecedente.Id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
             _ctxt.Antecedentes.Add(antecedente);
@@ -31,7 +33,7 @@ namespace Servicios
             var antecedent = _ctxt.Antecedentes.Find(id_antecedent);
             if (antecedent == null)
             {
-                Console.WriteLine("Registro no encontrado");
+                Console.WriteLine("Registro ANTECEDENTE no encontrado");
             }
             return antecedent;
         }
@@ -55,7 +57,7 @@ namespace Servicios
                 updated_antecedent.Drogas = antecedente.Drogas;
                 updated_antecedent.Tbc = antecedente.Tbc;
                 updated_antecedent.Tabaco = antecedente.Tabaco;
-                updated_antecedent.Vacunacion = antecedente.Vacunacion;
+                updated_antecedent.VacunacionId = antecedente.VacunacionId;
                 updated_antecedent.Medicacion = antecedente.Medicacion;
                 updated_antecedent.Hidatidosis = antecedente.Hidatidosis;
                 updated_antecedent.Hospitalizaciones = antecedente.Hospitalizaciones;
@@ -65,7 +67,7 @@ namespace Servicios
                 updated_antecedent.Familiares = antecedente.Familiares;
                 updated_antecedent.Quirurgicos = antecedente.Quirurgicos;
                 updated_antecedent.Obesidad = antecedente.Obesidad;
-                updated_antecedent.LastUpdated = DateTime.Today;
+                updated_antecedent.LastUpdated = DateTime.Now;
                 _ctxt.SaveChanges();
             }
         }

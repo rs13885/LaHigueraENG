@@ -7,21 +7,21 @@
 <div class="container text-center">
     @if (Enumerable.Count(ViewBag.Pacientes) > 0)
     {
-    <h1>Listado de Pacientes</h1>
+    <h1>List of Patients</h1>
     <br/>
     <div class="table-responsive">
         <table class="table table-hover" id="patients_list">
             <thead>
                 <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
                     <th scope="col">DNI</th>
-                    <th scope="col">Fecha de Nacimiento</th>
-                    <th scope="col">Sexo</th>
-                    <th scope="col">Paraje de atención</th>
-                    <th scope="col">Fecha de alta</th>
-                    <th scope="col">Activo</th>
-                    <th scope="col">Ver</th>
+                    <th scope="col">Date of birth</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Place of attention</th>
+                    <th scope="col">Date of entry</th>
+                    <th scope="col">Is active?</th>
+                    <th scope="col">View</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,24 +37,24 @@
                         <td>@paciente.FechaAlta.ToString().Split(" ")[0]</td>
                         @if (@paciente.FlgActivo == 1)
                         {
-                            <td class="bg-success">SI</td>
+                            <td class="bg-success">YES</td>
                         }else{
                             <td class="bg-secondary">NO</td>
                         }
-                            <td class="text-center"><a asp-action="viewDetails" asp-route-id="@paciente.Id"><img src="~/icons/eye.svg" /></a> <a data-bs-toggle="tooltip" data-bs-title="Exportar Historia Clínica" asp-action="ExportDataToPdf" asp-route-id="@paciente.Id"><img src="~/icons/pdf.svg" /></a></td>
+                            <td class="text-center"><a asp-action="viewDetails" asp-route-id="@paciente.Id"><img src="~/icons/eye.svg" /></a> <a data-bs-toggle="tooltip" data-bs-title="Export medical history" asp-action="ExportDataToPdf" asp-route-id="@paciente.Id"><img src="~/icons/pdf.svg" /></a></td>
                     </tr>
             }
             <tfoot>
                 <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
                     <th scope="col">DNI</th>
-                    <th scope="col">Fecha de Nacimiento</th>
-                    <th scope="col">Sexo</th>
-                    <th scope="col">Paraje de atención</th>
-                    <th scope="col">Fecha de alta</th>
-                    <th scope="col">Activo</th>
-                    <th scope="col">Ver</th>
+                    <th scope="col">Date of birth</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Place of attention</th>
+                    <th scope="col">Date of entry</th>
+                    <th scope="col">Is active?</th>
+                    <th scope="col">View</th>
                 </tr>
             </tfoot>
 
@@ -64,6 +64,6 @@
 
     } else
     {
-        <h4>No se registran pacientes activos en la base de datos</h4>
+        <h4>No active patients found in the database</h4>
     }
 </div>

@@ -10,60 +10,60 @@
 
 <div class="container text-center">
     <h1 class="display-4">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
-    <h4>Consulta(editar)</h4>
+    <h4>Consultation (edit)</h4>
     <br />
     <form action="/Consulta/editConsultation" method="POST">
         <div class="row">
             <div class="col">
-                <label class="form-label" for="FechaAtencion">Fecha de atención: *</label>
+                <label class="form-label" for="FechaAtencion">Consultation date: *</label>
                 <input class="form-control" type="date" name="FechaAtencion" value="@ViewBag.Consulta.FechaAtencion.ToString("yyyy-MM-dd")" max="@today" required />
             </div>
             <div class="col">
-                <label class="form-label" for="MotivoConsulta">Motivo Consulta: *</label>
+                <label class="form-label" for="MotivoConsulta">Reason for consultation: *</label>
                 <input class="form-control" type="text" name="MotivoConsulta" value="@ViewBag.Consulta.MotivoConsulta" required />
             </div>
             <div class="col">
-                <label class="form-label" for="MotivoConsulta">Edad: </label>
+                <label class="form-label" for="EdadConsulta">Age: </label>
                 <input class="form-control" type="text" name="EdadConsulta" value="@ViewBag.Consulta.EdadConsulta" />
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="DiagnosticoConsulta">Diagnostico Consulta: </label>
+                <label class="form-label" for="DiagnosticoConsulta">Diagnosis: </label>
                 <input class="form-control" type="text" name="DiagnosticoConsulta" value="@ViewBag.Consulta.DiagnosticoConsulta" />
             </div>
             <div class="col">
-                <label class="form-label" for="Observacion">Observación: </label>
+                <label class="form-label" for="Observacion">Comments: </label>
                 <input class="form-control" type="text" name="Observacion" value="@ViewBag.Consulta.Observacion" />
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="EvalNutric">Evaluación Nutricional: </label>
+                <label class="form-label" for="EvalNutric">Nutritional evaluation: </label>
                 <input class="form-control" type="text" name="EvalNutric" value="@ViewBag.Consulta.EvalNutric" />
             </div>
             <div class="col">
-                <label class="form-label" for="EvalSoc">Evaluación Social: </label>
+                <label class="form-label" for="EvalSoc">Social evaluation: </label>
                 <select class="form-control" name="EvalSoc">
                     @if (@ViewBag.Consulta.EvalSoc == "BAJO")
                     {
-                        <option selected value="BAJO">BAJO</option>
-                        <option value="MEDIO">MEDIO</option>
-                        <option value="ALTO">ALTO</option>
+                        <option selected value="BAJO">LOW</option>
+                        <option value="MEDIO">MID</option>
+                        <option value="ALTO">HIGH</option>
                     }
                     @if (@ViewBag.Consulta.EvalSoc == "MEDIO")
                     {
-                        <option value="BAJO">BAJO</option>
-                        <option selected value="MEDIO">MEDIO</option>
-                        <option value="ALTO">ALTO</option>
+                        <option value="BAJO">LOW</option>
+                        <option selected value="MEDIO">MID</option>
+                        <option value="ALTO">HIGH</option>
                     }
                     @if (@ViewBag.Consulta.EvalSoc == "ALTO")
                     {
-                        <option value="BAJO">BAJO</option>
-                        <option value="MEDIO">MEDIO</option>
-                        <option selected value="ALTO">ALTO</option>
+                        <option value="BAJO">LOW</option>
+                        <option value="MEDIO">MID</option>
+                        <option selected value="ALTO">HIGH</option>
                     }
                 </select>
             </div>
@@ -73,15 +73,15 @@
         {
             <div class="row">
                 <div class="col">
-                    <label class="form-label" for="Fum">Fecha última menstruación (Fum):</label>
+                    <label class="form-label" for="Fum">Last menstrual period (LMP):</label>
                     <input class="form-control" type="date" name="Fum" value="@ViewBag.Consulta.Fum" max="@today" />
                 </div>
                 <div class="col">
-                    <label class="form-label" for="MacActual">Método anticonceptivo (Mac) Actual: </label>
+                    <label class="form-label" for="MacActual">Current contraceptive method: </label>
                     <input class="form-control" type="text" name="MacActual" value="@ViewBag.Consulta.MacActual" />
                 </div>
                 <div class="col">
-                    <label class="form-label" for="FechaMac">Fecha Mac: </label>
+                    <label class="form-label" for="FechaMac">Contraceptive method date: </label>
                     <input class="form-control" type="date" name="FechaMac" value="@ViewBag.Consulta.FechaMac" max="@today" />
                 </div>
             </div>
@@ -90,7 +90,7 @@
         <br />
         <input type="number" name="PacienteId" value=@ViewBag.Paciente.Id hidden />
         <input type="number" name="Id" value=@ViewBag.Consulta.Id hidden />
-        <input class="btn btn-lg btn-success" type="submit" name="editar" value="Editar Consulta" />
-        <a class="btn btn-lg btn-danger" href="/Paciente/viewDetails/@ViewBag.Paciente.Id">Cancelar</a>
+        <input class="btn btn-lg btn-success" type="submit" name="editar" value="Edit Consultation" />
+        <a class="btn btn-lg btn-danger" href="/Paciente/viewDetails/@ViewBag.Paciente.Id">Cancel</a>
     </form>
 </div>

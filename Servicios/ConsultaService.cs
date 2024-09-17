@@ -11,7 +11,7 @@ namespace Servicios
         }
 
         public List<Consulta> getAllConsultationFromIdPatient(int id_patient) { 
-            // This Method returns all consultation availables for a patient
+            // This Method returns all consultation availables for a patient      
             return _ctxt.Consulta.Where(o => o.PacienteId == id_patient).OrderByDescending(o => o.FechaAtencion).ToList();
         }
 
@@ -19,13 +19,15 @@ namespace Servicios
         {
             //This method persists Consulta objects in DDBB
             try {
-                consulta.FechaCreacion = @DateTime.Today;
+                consulta.FechaCreacion = DateTime.Now;
+                consulta.LastUpdated = consulta.FechaCreacion;
                 //Paso a uppercase los campos de texto antes de guardarlo
                 consulta.MotivoConsulta = consulta.MotivoConsulta.ToUpper();
                 consulta.DiagnosticoConsulta = consulta.DiagnosticoConsulta?.ToUpper() ?? "";
                 consulta.Observacion = consulta.Observacion?.ToUpper() ?? "";
                 consulta.EvalNutric = consulta.EvalNutric?.ToUpper() ?? "";
                 consulta.EvalSoc = consulta.EvalSoc.ToUpper();
+                consulta.Colposcopia = consulta.Colposcopia?.ToUpper() ?? "";
                 consulta.MacActual = consulta.MacActual?.ToUpper() ?? "";
                 consulta.Id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
                 _ctxt.Consulta.Add(consulta);
@@ -59,8 +61,56 @@ namespace Servicios
                 edited_consultation.FechaAtencion = consulta.FechaAtencion;
                 edited_consultation.Fum = consulta.Fum;
                 edited_consultation.MacActual = consulta.MacActual?.ToUpper() ?? "";
-                edited_consultation.PacienteId = consulta.PacienteId;
-                edited_consultation.LastUpdated= DateTime.Today;
+                edited_consultation.LastUpdated= DateTime.Now;
+                edited_consultation.ExamenFisico = consulta.ExamenFisico;
+                edited_consultation.Ta = consulta.Ta;
+                edited_consultation.Peso = consulta.Peso;
+                edited_consultation.Talla = consulta.Talla;
+                edited_consultation.Imc = consulta.Imc;
+                edited_consultation.CircCintura = consulta.CircCintura;
+                edited_consultation.CircCadera = consulta.CircCadera;
+                edited_consultation.Icc = consulta.Icc;
+                edited_consultation.Saturacion = consulta.Saturacion;
+                edited_consultation.FrecuenciaCardiaca = consulta.FrecuenciaCardiaca;
+                edited_consultation.FrecuenciaRespiratoria = consulta.FrecuenciaRespiratoria;
+                edited_consultation.Temperatura = consulta.Temperatura;
+                edited_consultation.Glicemia = consulta.Glicemia;
+                edited_consultation.AgudezaDer = consulta.AgudezaDer;
+                edited_consultation.AgudezaIzq = consulta.AgudezaIzq;
+                edited_consultation.Ecografia = consulta.Ecografia;
+                edited_consultation.ObservacionEco = consulta.ObservacionEco;
+                edited_consultation.Ecg = consulta.Ecg;
+                edited_consultation.ObservacionEcg = consulta.ObservacionEcg;
+                edited_consultation.Radiografia = consulta.Radiografia;
+                edited_consultation.ObservacionRadiografia = consulta.ObservacionRadiografia;
+                edited_consultation.Laboratorio = consulta.Laboratorio;
+                edited_consultation.ObservacionLab = consulta.ObservacionLab;
+                edited_consultation.EstudiosComp = consulta.EstudiosComp;             
+                edited_consultation.Tratamiento = consulta.Tratamiento;
+                edited_consultation.DerivacionAguda = consulta.DerivacionAguda;
+                edited_consultation.DerivacionProg = consulta.DerivacionProg;
+                edited_consultation.ObservacionDeriv = consulta.ObservacionDeriv;
+                edited_consultation.PercentilPeso = consulta.PercentilPeso;
+                edited_consultation.PzPeso = consulta.PzPeso;
+                edited_consultation.PercentilTalla = consulta.PercentilTalla;
+                edited_consultation.PzTalla = consulta.PzTalla;
+                edited_consultation.PercentilImc = consulta.PercentilImc;
+                edited_consultation.PzImc = consulta.PzImc;
+                edited_consultation.Pc = consulta.Pc;
+                edited_consultation.PercentilPc = consulta.PercentilPc;
+                edited_consultation.PzPc = consulta.PzPc;
+                edited_consultation.Gestas = consulta.Gestas;
+                edited_consultation.Para = consulta.Para;
+                edited_consultation.Cesareas = consulta.Cesareas;
+                edited_consultation.Abortos = consulta.Abortos;
+                edited_consultation.Irs = consulta.Irs;
+                edited_consultation.Menarca = consulta.Menarca;
+                edited_consultation.RitmoMenst = consulta.RitmoMenst;
+                edited_consultation.Menopausia = consulta.Menopausia;
+                edited_consultation.TomaPap = consulta.TomaPap;
+                edited_consultation.ResultadoPap = consulta.ResultadoPap;
+                edited_consultation.Colposcopia = consulta.Colposcopia?.ToUpper() ?? "";
+
                 _ctxt.SaveChanges();
                 Console.WriteLine("Consulta modificada OK!");
             }

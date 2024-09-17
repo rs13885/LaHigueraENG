@@ -6,23 +6,23 @@
 
 <div class="container text-center">
     <h1 class="display-4">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
-    <h4>Antecedente (editar)</h4>
+    <h4>History (edit)</h4>
     <br />
     <form action="/Antecedente/editAntecedent" method="POST">
         <div class="row">
             <div class="col">
-                <label class="form-label" for="Sedentarismo">Sedentarismo: </label>
+                <label class="form-label" for="Sedentarismo">Sedentary lifestyle: </label>
                 <select class="form-control" name="Sedentarismo">
                     <option selected value=@ViewBag.Paciente.Sexo>@ViewBag.Paciente.Sexo</option>
                     @if (@ViewBag.Antecedente.Sedentarismo == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
 
                     }
                     else
                     {
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                         <option selected value=0>NO</option>
                     }                    
                 </select>
@@ -32,46 +32,46 @@
                 <select class="form-control" name="Alcohol">
                     @if (@ViewBag.Antecedente.Alcohol == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
 
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
 
                     }
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Drogas">Consumo Drogas: </label>
+                <label class="form-label" for="Drogas">Drugs Consumption: </label>
                 <select class="form-control" name="Drogas">
                     @if (@ViewBag.Antecedente.Drogas == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
 
                     }
                     else
                     {
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                         <option selected value=0>NO</option>
                     }
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Tabaco">Tabaco: </label>
+                <label class="form-label" for="Tabaco">Tobacco: </label>
                 <select class="form-control" name="Tabaco">
                     @if (@ViewBag.Antecedente.Tabaco == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
@@ -80,62 +80,62 @@
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="Alergias">Alergias: </label>
+                <label class="form-label" for="Alergias">Allergies: </label>
                 <select class="form-control" name="Alergias">
                     @if (@ViewBag.Antecedente.Alergias == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Dbt">Dbt: </label>
+                <label class="form-label" for="Dbt">Diabetes: </label>
                 <select class="form-control" name="Dbt">
                     @if (@ViewBag.Antecedente.Dbt == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Hta">Hta: </label>
+                <label class="form-label" for="Hta">HBP: </label>
                 <select class="form-control" name="Hta">
                     @if (@ViewBag.Antecedente.Hta == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Dislipemia">Dislipemia: </label>
+                <label class="form-label" for="Dislipemia">Dyslipidemia: </label>
                 <select class="form-control" name="Dislipemia">
                     @if (@ViewBag.Antecedente.Dislipemia == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
@@ -144,62 +144,62 @@
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="Obesidad">Obesidad: </label>
+                <label class="form-label" for="Obesidad">Obesity: </label>
                 <select class="form-control" name="Obesidad">
                     @if (@ViewBag.Antecedente.Obesidad == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Chagas">Chagas: </label>
+                <label class="form-label" for="Chagas">Chagas disease: </label>
                 <select class="form-control" name="Chagas">
                     @if (@ViewBag.Antecedente.Chagas == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Hidatidosis">Hidatidosis: </label>
+                <label class="form-label" for="Hidatidosis">Hydatidosis: </label>
                 <select class="form-control" name="Hidatidosis">
                     @if (@ViewBag.Antecedente.Hidatidosis == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Tbc">Tbc: </label>
+                <label class="form-label" for="Tbc">TB: </label>
                 <select class="form-control" name="Tbc">
                     @if (@ViewBag.Antecedente.Tbc == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
@@ -213,45 +213,45 @@
                 <select class="form-control" name="Cancer">
                     @if (@ViewBag.Antecedente.Cancer == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
 
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
 
                     }
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Quirurgicos">Quirúrgicos: </label>
+                <label class="form-label" for="Quirurgicos">Surgical: </label>
                 <select class="form-control" name="Quirurgicos">
                     @if (@ViewBag.Antecedente.Quirurgicos == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Hospitalizaciones">Hospitalizaciones: </label>
+                <label class="form-label" for="Hospitalizaciones">Hospitalizations: </label>
                 <select class="form-control" name="Hospitalizaciones">
                     @if (@ViewBag.Antecedente.Hospitalizaciones == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
@@ -260,62 +260,62 @@
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="RiesgoNut">Riesgo Nutricional: </label>
+                <label class="form-label" for="RiesgoNut">Nutritional risk: </label>
                 <select class="form-control" name="RiesgoNut">
                     @if (@ViewBag.Antecedente.RiesgoNut == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="RiesgoSoc">Riesgo Social: </label>
+                <label class="form-label" for="RiesgoSoc">Social risk: </label>
                 <select class="form-control" name="RiesgoSoc">
                     @if (@ViewBag.Antecedente.RiesgoSoc == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Personales">Personales: </label>
+                <label class="form-label" for="Personales">Personal history: </label>
                 <select class="form-control" name="Personales">
                     @if (@ViewBag.Antecedente.Personales == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Familiares">Familiares: </label>
+                <label class="form-label" for="Familiares">Family history: </label>
                 <select class="form-control" name="Familiares">
                     @if (@ViewBag.Antecedente.Familiares == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
@@ -324,47 +324,47 @@
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="AntPerinatales">Antecedentes Perinatales: </label>
+                <label class="form-label" for="AntPerinatales">Perinatal history: </label>
                 <select class="form-control" name="AntPerinatales">
                     @if (@ViewBag.Antecedente.AntPerinatales == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Vacunacion">Vacunación: </label>
+                <label class="form-label" for="Vacunacion">Vaccination: </label>
                 <select class="form-control" name="Vacunacion">
                     @if (@ViewBag.Antecedente.Vacunacion == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Medicacion">Medicación: </label>
+                <label class="form-label" for="Medicacion">Medication: </label>
                 <select class="form-control" name="Medicacion">
                     @if (@ViewBag.Antecedente.Medicacion == 1)
                     {
-                        <option selected value=1>SI</option>
+                        <option selected value=1>YES</option>
                         <option value=0>NO</option>
                     }
                     else
                     {
                         <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>YES</option>
                     }
                 </select>
             </div>
@@ -373,7 +373,7 @@
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="Notas">Notas: </label>
+                <label class="form-label" for="Notas">Notes: </label>
                 <textarea name="Notas" class="form-control" cols="120" rows="8">@ViewBag.Antecedente.Notas</textarea>
             </div>
         </div>
@@ -382,7 +382,7 @@
         <br />
         <br />
         <input type="number" name="PacienteId" value=@ViewBag.Paciente.Id hidden />
-        <input class="btn btn-lg btn-success" type="submit" name="editar" value="Editar Antecedente" />
-        <a class="btn btn-lg btn-danger" href="/Paciente/viewDetails/@ViewBag.Paciente.Id">Cancelar</a>
+        <input class="btn btn-lg btn-success" type="submit" name="editar" value="Edit History" />
+        <a class="btn btn-lg btn-danger" href="/Paciente/viewDetails/@ViewBag.Paciente.Id">Cancel</a>
     </form>
 </div>

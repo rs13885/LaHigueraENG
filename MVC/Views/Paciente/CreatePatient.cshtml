@@ -9,61 +9,61 @@
 }
 
 <div class="container text-center">
-    <h1 class="display-4">Alta de Paciente</h1>
+    <h1 class="display-4">Create Patient</h1>
     <br />
     <form action="/Paciente/CreatePatient" method="POST">
         <div class="row">
             <div class="col">
-                <label class="form-label" for="nombre">Nombre: *</label>
+                <label class="form-label" for="nombre">First name: *</label>
                 <input class="form-control" type="text" name="nombre" value="" required/>
             </div>
             <div class="col">
-                <label class="form-label" for="apellido">Apellido: *</label>
+                <label class="form-label" for="apellido">Last name: *</label>
                 <input class="form-control" type="text" name="apellido" value="" required />
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="Dni">Dni: </label>
+                <label class="form-label" for="Dni">DNI: </label>
                 <input class="form-control" type="number" name="Dni" value="" />
             </div>
             <div class="col">
-                <label class="form-label" for="FechaNac">Fecha de Nacimiento: *</label>
+                <label class="form-label" for="FechaNac">Date of birth: *</label>
                 <input class="form-control" type="date" name="FechaNac" value="" required max="@today" />
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="Sexo">Sexo: *</label>
+                <label class="form-label" for="Sexo">Gender: *</label>
                 <select class="form-control" name="Sexo" required>
-                    <option value="">Elija una opción</option>
-                    <option value="FEMENINO">FEMENINO</option>
-                    <option value="MASCULINO">MASCULINO</option>
+                    <option value="">Choose an option</option>
+                    <option value="FEMENINO">FEMALE</option>
+                    <option value="MASCULINO">MALE</option>
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="ParajeAtencion">Paraje de atención: *</label>
+                <label class="form-label" for="ParajeAtencion">Place of attention: *</label>
                 <input class="form-control" type="text" name="ParajeAtencion" value="" required />
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="FlgActivo">Activo:</label>
+                <label class="form-label" for="FlgActivo">Active:</label>
                 <select class="form-control" name="FlgActivo">                    
-                    <option selected value=1>Activo</option>
-                    <option value=0>No activo</option>
+                    <option selected value=1>Active</option>
+                    <option value=0>Inactive</option>
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="FechaAlta">Fecha de alta: </label>
+                <label class="form-label" for="FechaAlta">Date of entry: </label>
                 <input class="form-control" type="date" name="FechaAlta" value="" max="@today" />
             </div>
         </div>
         <br />
         <br />
-        <input class="btn btn-lg btn-success" type="submit" name="agregar" value="Agregar Paciente" />
+        <input class="btn btn-lg btn-success" type="submit" name="agregar" value="Create Patient" />
     </form>
 </div>

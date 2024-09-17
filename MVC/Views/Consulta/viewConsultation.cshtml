@@ -5,12 +5,12 @@
 }
 
 <div class="container text-center">
-    <h1>Consulta realizada el día: @ViewBag.Consulta.FechaAtencion.ToString("dd/MM/yyyy") para @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido </h1>
+    <h1>Consultation date: @ViewBag.Consulta.FechaAtencion.ToString("dd/MM/yyyy") for patient @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido </h1>
     <div class="row">
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Motivo Consulta: </h5>
+                    <h5 class="card-title">Reason for consultation: </h5>
                     <p class="card-text">@ViewBag.Consulta.MotivoConsulta</p>
                 </div>
             </div>
@@ -18,7 +18,7 @@
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Diagnostico Consulta: </h5>
+                    <h5 class="card-title">Diagnosis: </h5>
                     <p class="card-text">@ViewBag.Consulta.DiagnosticoConsulta</p>
                 </div>
             </div>
@@ -26,7 +26,7 @@
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Observación: </h5>
+                    <h5 class="card-title">Comments: </h5>
                     <p class="card-text">@ViewBag.Consulta.Observacion</p>
                 </div>
             </div>
@@ -37,7 +37,7 @@
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Evaluación Nutricional:</h5>
+                    <h5 class="card-title">Nutritional evaluation:</h5>
                     <p class="card-text">@ViewBag.Consulta.EvalNutric</p>
                 </div>
             </div>
@@ -45,7 +45,7 @@
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Evaluación Social:</h5>
+                    <h5 class="card-title">Social evaluation:</h5>
                     <p class="card-text">@ViewBag.Consulta.EvalSoc</p>
                 </div>
             </div>
@@ -53,7 +53,7 @@
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Edad:</h5>
+                    <h5 class="card-title">Age:</h5>
                     <p class="card-text">@ViewBag.Consulta.EdadConsulta</p>
                 </div>
             </div>
@@ -65,7 +65,7 @@
             <div class="col-sm-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Fum:</h5>
+                        <h5 class="card-title">LMP:</h5>
                         <p class="card-text">@ViewBag.Consulta.Fum</p>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
             <div class="col-sm-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Mac Actual:</h5>
+                        <h5 class="card-title">Current contraceptive method:</h5>
                         <p class="card-text">@ViewBag.Consulta.MacActual</p>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
             <div class="col-sm-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Fecha Mac: @ViewBag.Consulta.FechaMac</h5>
+                        <h5 class="card-title">Contraceptive method date: @ViewBag.Consulta.FechaMac</h5>
                         <p class="card-text">@ViewBag.Consulta.FechaMac</p>
                     </div>
                 </div>

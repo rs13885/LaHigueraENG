@@ -1,7 +1,11 @@
 ﻿using Entidades.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
+using PdfSharp.Snippets;
 using Servicios;
 using System.Dynamic;
+using System.Net;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MVC.Controllers
 {
@@ -11,21 +15,23 @@ namespace MVC.Controllers
         private IAntecedenteService _antecedenteService;
         private IComplementarioService _complementarioService;
         private IConsultaService _consultaService;
-        private IHistoriaService _historiaService;
-        private IPediatriaService _pediatriaService;
-        private IGinecologiaService _ginecologiaService;
-        public PacienteController(IPacienteService pacienteService, IAntecedenteService antecedenteService, IComplementarioService complementarioService, IConsultaService consultaService, IHistoriaService historiaService, IPediatriaService pediatriaService, IGinecologiaService ginecologiaService)
+        private IEstadoCivilService _estadoCivilService;
+        private IEscolaridadService _escolaridadService;
+        private IEtniaService _etniaService;
+        
+        public PacienteController(IPacienteService pacienteService, IAntecedenteService antecedenteService, IComplementarioService complementarioService, IConsultaService consultaService, IEstadoCivilService estadoCivilService, IEscolaridadService escolaridadService, IEtniaService etniaService)
         {
             _pacienteService = pacienteService;
             _antecedenteService = antecedenteService;
             _complementarioService = complementarioService;
             _consultaService = consultaService;
-            _historiaService = historiaService;
-            _pediatriaService = pediatriaService;
-            _ginecologiaService = ginecologiaService;
+            _estadoCivilService = estadoCivilService;
+            _escolaridadService = escolaridadService;
+            _etniaService = etniaService;
         }
         public ActionResult CreatePatient()
         {
+            ViewBag.Etnia = _etniaService.getAll();
             return View();
         }
 
@@ -35,12 +41,24 @@ namespace MVC.Controllers
         {
             try
             {
-                _pacienteService.create(paciente);
-                return Redirect("/Paciente/ListPatient");
+                var result = _pacienteService.create(paciente);
+                if (result == 0)
+                {
+                    TempData["msg"] = "Paciente creado OK";
+                    return Redirect("/Paciente/ListPatient");
+                }
+                else
+                {
+                    ViewBag.msg = "Ya existe un paciente registrado con ese DNI";
+                    ViewBag.Etnia = _etniaService.getAll();
+                    return View();
+                }
+                //return Redirect("/Paciente/ListPatient");
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
+                TempData["error"] = e.ToString();
                 return Redirect("/Home/Error");
             }
         }
@@ -73,12 +91,19 @@ namespace MVC.Controllers
         public ActionResult editPatient(int id)
         {
             ViewBag.Paciente = _pacienteService.getPatient(id);
+            ViewBag.Etnia = _etniaService.getById(Convert.ToInt32(_pacienteService.getPatient(id).EtniaId));
+            ViewBag.EtniaFiltered = _etniaService.getAllButId(Convert.ToInt32(_pacienteService.getPatient(id).EtniaId));
             return View();
         }
 
         [HttpPost]
         public ActionResult editPatient(Paciente paciente)
         {
+            TempData["msg"] = "Paciente editado OK";
+            if (_pacienteService.checkPatient(paciente.Dni) != false)
+            {            
+                TempData["msg"] = "Paciente editado OK, excepto el DNI -ya existe en la base de datos-";
+            }
             _pacienteService.editPatient(paciente);
             string redirect = "/Paciente/viewDetails/" + paciente.Id;
             return Redirect(redirect);
@@ -94,40 +119,27 @@ namespace MVC.Controllers
             ViewBag.Antecedente = _antecedenteService.getAllAntecedentForAPatient(id);
             ViewBag.Complementario = _complementarioService.getComplementaryData(id);
             ViewBag.Consulta = _consultaService.getAllConsultationFromIdPatient(id);
-            ViewBag.Historia = _historiaService.getAllHistoryForAPatient(id);
-            ViewBag.Pediatria = _pediatriaService.getAllPediatryForAPatient(id);
-            ViewBag.Ginecologia = _ginecologiaService.getAllGinecologyForAPatient(id);
+            ViewBag.Etnia = _etniaService.getById(Convert.ToInt32(_pacienteService.getPatient(id).EtniaId));
+            if (ViewBag.Complementario != null)
+            {                
+                ViewBag.EstadoCivil = ViewBag.Complementario.EstadoCivilId != null ? _estadoCivilService.getById(ViewBag.Complementario.EstadoCivilId) : null;
+                ViewBag.Escolaridad = ViewBag.Complementario.EscolaridadId != null ? _escolaridadService.getById(ViewBag.Complementario.EscolaridadId): null;
+            }
+
             return View();
         }
 
         public ActionResult ExportDataToPdf(int id)
         {
 
-            dynamic patient = this.getPatientInformation(id);
+            Paciente patient = _pacienteService.getPatient(id);
 
-            var response = PacientePdfService.GeneratePdfHistory(patient);
+            byte[] response = PacientePdfService.GeneratePdfHistory(patient);
 
-            string fileName = DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + "-historia-clinica-paciente-" + patient.information.Apellido + "-" + patient.information.Nombre + ".pdf";
+            string fileName = DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + "-historia-clinica-paciente-" + patient.Apellido + "-" + patient.Nombre + ".pdf";
             
             return File(response, "application/pdf", fileName);
         }
 
-        private dynamic getPatientInformation(int patientId)
-        {
-            dynamic patient = new ExpandoObject();
-
-            var complementary = _complementarioService.getComplementaryData(patientId);
-
-            patient.information = _pacienteService.getPatient(patientId);
-            patient.complementary = complementary.Count > 0 ? complementary.Last(): null;
-            patient.consultations = _consultaService.getAllConsultationFromIdPatient(patientId);
-            patient.history = _historiaService.getAllHistoryForAPatient(patientId);
-            patient.background = _antecedenteService.getAllAntecedentForAPatient(patientId);
-            patient.ginecology = _ginecologiaService.getAllGinecologyForAPatient(patientId);
-            patient.pediatry = _pediatriaService.getAllPediatryForAPatient(patientId);
-
-            return patient;
-
-        }
     }
 }

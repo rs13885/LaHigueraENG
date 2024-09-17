@@ -1,5 +1,6 @@
 ﻿using Entidades.Models;
 using System;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -24,7 +25,7 @@ namespace Servicios
             return _ctxt.Pacientes.Where(o => o.FlgActivo == 0).ToList();
         }
 
-        public void create(Paciente paciente)
+        public int create(Paciente paciente)
         {
             //Creo una variable para saber si debo guardar o no un paciente, por defecto en false
             bool guardaPaciente = false;
@@ -56,7 +57,9 @@ namespace Servicios
                 paciente.Nombre = paciente.Nombre.ToUpper();
                 paciente.Apellido = paciente.Apellido.ToUpper();
                 paciente.Sexo = paciente.Sexo.ToUpper();
-                
+                paciente.LugarNac = paciente.LugarNac?.ToUpper() ?? "";
+                paciente.FechaCreacion = DateTime.Now;
+                paciente.LastUpdate = paciente.FechaCreacion;
                 //Create an uniq Id based on: nombre, apellido, DNI y fecha de nacimiento
                 string string_to_hash = paciente.Nombre + paciente.Apellido + paciente.FechaNac + paciente.Dni;
                 SHA512 sha512 = SHA512.Create();
@@ -70,11 +73,12 @@ namespace Servicios
                 paciente.Id = hashed_id;
                 _ctxt.Pacientes.Add(paciente);
                 _ctxt.SaveChanges();
+                return 0;
             }
             else
             {
                 Console.WriteLine("Paciente ya existe");
-                throw new Exception("Paciente ya existe");
+                return 1;
             }          
         }
 
@@ -89,6 +93,7 @@ namespace Servicios
             else
             {
                 activate_patient.FlgActivo = 1;
+                activate_patient.LastUpdate = DateTime.Now;
                 _ctxt.SaveChanges();
             }
             
@@ -105,6 +110,7 @@ namespace Servicios
             else
             {
                 deactivate_patient.FlgActivo = 0;
+                deactivate_patient.LastUpdate = DateTime.Now;
                 _ctxt.SaveChanges();
             }
             
@@ -127,14 +133,30 @@ namespace Servicios
                 updated_patient.FlgActivo = paciente.FlgActivo;
                 updated_patient.FechaNac = paciente.FechaNac;
                 updated_patient.FechaAlta = paciente.FechaAlta;
+                updated_patient.EtniaId = paciente.EtniaId;
+                updated_patient.AnoIngreso = paciente.AnoIngreso;
+                updated_patient.LastUpdate = DateTime.Now;           
+                updated_patient.LugarNac = paciente.LugarNac?.ToUpper() ?? "";
                 if (paciente.ParajeAtencion != null)
                 {
                     updated_patient.ParajeAtencion = paciente.ParajeAtencion.ToUpper();
+                }            
+                if (checkPatient(paciente.Dni) == false)
+                {
+                    updated_patient.Dni = paciente.Dni;
                 }
-                updated_patient.Dni = paciente.Dni;
                 _ctxt.SaveChanges();
             }
             _ctxt.SaveChanges();
+        }
+
+        public bool checkPatient(String dni)
+        {
+            if (dni != null)
+            {
+                return _ctxt.Pacientes.Any(o => o.Dni == dni);
+            }
+            return false;
         }
 
     }

@@ -6,54 +6,54 @@
 
 <div class="container text-center">
     <h1 class="display-4">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
-    <h4>Datos complementarios (crear)</h4>
+    <h4>Complementary data (create)</h4>
     <br />
     <form action="/Complementario/create" method="POST">
         <div class="row">
             <div class="col">
-                <label class="form-label" for="LugarNac">Lugar de nacimiento: </label>
+                <label class="form-label" for="LugarNac">Place of birth: </label>
                 <input class="form-control" type="text" name="LugarNac" value="" />
             </div>
             <div class="col">
-                <label class="form-label" for="ParajeResidencia">Paraje de Residencia: </label>
+                <label class="form-label" for="ParajeResidencia">Location of residence: </label>
                 <input class="form-control" type="text" name="ParajeResidencia" value="" />
             </div>
             <div class="col">
-                <label class="form-label" for="Etnia">Etnia: </label>
+                <label class="form-label" for="Etnia">Ethnicity: </label>
                 <input class="form-control" type="text" name="Etnia" value="" />
             </div>
             <div class="col">
-                <label class="form-label" for="EstadoCivil">Estado Civil: </label>
+                <label class="form-label" for="EstadoCivil">Marital status: </label>
                 <input class="form-control" type="text" name="EstadoCivil" value="" />
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="SabeLeer">Sabe Leer? </label>
+                <label class="form-label" for="SabeLeer">Can read? </label>
                 <select class="form-control" name="SabeLeer">
-                    <option value=0>Elija una opción</option>
-                    <option value=1>Si</option>
+                    <option value=0>Choose an option</option>
+                    <option value=1>Yes</option>
                     <option value=0>No</option>
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Escolaridad">Escolaridad: </label>
+                <label class="form-label" for="Escolaridad">Schooling: </label>
                 <select class="form-control" name="Escolaridad">
-                    <option selected value="NINGUNA">NINGUNA</option>
-                    <option value="JARDIN INFANTES">JARDIN INFANTES</option>
-                    <option value="PRIMARIA">PRIMARIA</option>
-                    <option value="SECUNDARIA">SECUNDARIA</option>
-                    <option value="TERCIARIA">TERCIARIA</option>
-                    <option value="UNIVERSITARIA">UNIVERSITARIA</option>
+                    <option selected value="NINGUNA">NONE</option>
+                    <option value="JARDIN INFANTES">KINDERGARDEN</option>
+                    <option value="PRIMARIA">PRIMARY</option>
+                    <option value="SECUNDARIA">SECONDARY</option>
+                    <option value="TERCIARIA">TERTIARY</option>
+                    <option value="UNIVERSITARIA">UNIVERSITY</option>
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Ocupacion">Ocupacion: </label>
+                <label class="form-label" for="Ocupacion">Occupation: </label>
                 <input class="form-control" type="text" name="Ocupacion" value="" />
             </div>
             <div class="col">
-                <label class="form-label" for="AnoIngreso">Año de Ingreso: </label>
+                <label class="form-label" for="AnoIngreso">Year of entry: </label>
                 <input class="form-control" type="number" name="AnoIngreso" value="" />
             </div>
         </div>
@@ -61,13 +61,13 @@
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="Notas">Notas: </label>
+                <label class="form-label" for="Notas">Notes: </label>
                 <textarea name="Notas" class="form-control" cols="120" rows="8"></textarea>
             </div>
         </div>
         <br />
         <input type="number" name="PacienteId" value=@ViewBag.PacienteID hidden />
-        <input class="btn btn-lg btn-success" type="submit" name="agregar" value="Agregar Datos complementarios" />
-        <a class="btn btn-lg btn-danger" href="/Paciente/viewDetails/@ViewBag.PacienteID">Cancelar</a>
+        <input class="btn btn-lg btn-success" type="submit" name="agregar" value="Create complementary data record" />
+        <a class="btn btn-lg btn-danger" href="/Paciente/viewDetails/@ViewBag.PacienteID">Cancel</a>
     </form>
 </div>

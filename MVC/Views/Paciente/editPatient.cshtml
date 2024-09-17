@@ -9,68 +9,68 @@
 }
 
 <div class="container text-center">
-    <h1 class="display-4">Editar datos filiatorios del Paciente</h1>
+    <h1 class="display-4">Edit personal data</h1>
     <br />
     <form action="/Paciente/editPatient" method="POST">
         <div class="row">
             <div class="col">
-                <label class="form-label" for="nombre">Nombre: </label>
+                <label class="form-label" for="nombre">First name: </label>
                 <input class="form-control" type="text" name="nombre" value="@ViewBag.Paciente.Nombre" />
             </div>
             <div class="col">
-                <label class="form-label" for="apellido">Apellido: </label>
+                <label class="form-label" for="apellido">Last name: </label>
                 <input class="form-control" type="text" name="apellido" value="@ViewBag.Paciente.Apellido" />
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="Dni">Dni: </label>
+                <label class="form-label" for="Dni">DNI: </label>
                 <input class="form-control" type="number" name="Dni" value=@ViewBag.Paciente.Dni />
             </div>
             <div class="col">
-                <label class="form-label" for="FechaNac">Fecha de Nacimiento: </label>
+                <label class="form-label" for="FechaNac">Date of birth: </label>
                 <input class="form-control" type="date" name="FechaNac" value="@ViewBag.Paciente.FechaNac.ToString("yyyy-MM-dd")" max="@today" />
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="Sexo">Sexo: </label>
+                <label class="form-label" for="Sexo">Gender: </label>
                 <select class="form-control" name="Sexo">
                     <option selected value=@ViewBag.Paciente.Sexo>@ViewBag.Paciente.Sexo</option>
                     @if (@ViewBag.Paciente.Sexo.ToUpper() == "FEMENINO")
                     {
-                        <option value="MASCULINO">MASCULINO</option>
+                        <option value="MASCULINO">MALE</option>
                     }else
                     {
-                        <option value="FEMENINO">FEMENINO</option>
+                        <option value="FEMENINO">FEMALE</option>
                     }
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="ParajeAtencion">Paraje de atención: </label>
+                <label class="form-label" for="ParajeAtencion">Place of attention: </label>
                 <input class="form-control" type="text" name="ParajeAtencion" value="@ViewBag.Paciente.ParajeAtencion" />
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="FechaNac">Activo:</label>
+                <label class="form-label" for="FechaNac">Active:</label>
                 <select class="form-control" name="FlgActivo">
-                    <option selected value=1>Activo</option>
-                    <option value=0>No activo</option>
+                    <option selected value=1>Active</option>
+                    <option value=0>Inactive</option>
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="FechaAlta">Fecha Alta: </label>
+                <label class="form-label" for="FechaAlta">Date of entry: </label>
                 <input class="form-control" type="date" name="FechaAlta" value="@ViewBag.Paciente.FechaAlta.ToString("yyyy-MM-dd")" max="@today" />
             </div>
             <input type="number" name="Id" value=@ViewBag.Paciente.Id hidden/>
         </div>
         <br />
         <br />
-        <input class="btn btn-lg btn-success" type="submit" name="agregar" value="Actualizar Paciente" />
-        <a class="btn btn-lg btn-danger" href="/Paciente/viewDetails/@ViewBag.Paciente.Id">Cancelar</a>
+        <input class="btn btn-lg btn-success" type="submit" name="agregar" value="Update personal data" />
+        <a class="btn btn-lg btn-danger" href="/Paciente/viewDetails/@ViewBag.Paciente.Id">Cancel</a>
     </form>
 </div>
